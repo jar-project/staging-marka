@@ -1,0 +1,316 @@
+{
+  "hero": {
+    "eyebrow": "YOUR GROWTH PARTNER",
+    "title_prefix": "We help brands consistently generate",
+    "rotating_words": ["leads", "SQLs", "RoAS", "revenue"],
+    "cards": [
+      {
+        "id": 1,
+        "type": "image",
+        "bg_image": "assets/hero-1.jpg",
+        "metrics": [
+          {"value": "-42%", "label": "Cost per lead"},
+          {"value": "4.9x", "label": "ROAS B2B"}
+        ],
+        "headline": "B2B logistik yang akhirnya ngerti digital ads.",
+        "description": "Marka bantu tim sales dapetin qualified leads dari enterprise clients lewat strategi Google Ads dan Meta Ads yang tepat sasaran.",
+        "cta_primary": "Book a call",
+        "cta_primary_link": "#",
+        "cta_secondary": "Lihat case study",
+        "cta_secondary_link": "#"
+      },
+      {
+        "id": 2,
+        "type": "image",
+        "bg_image": "assets/hero-2.jpg",
+        "metrics": [
+          {"value": "2.4M", "label": "Lorem ipsum"},
+          {"value": "8.2%", "label": "Dolor sit amet"}
+        ],
+        "headline": "Lorem ipsum dolor sit amet consectetur.",
+        "description": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.",
+        "cta_primary": "Book a call",
+        "cta_primary_link": "#",
+        "cta_secondary": "Lihat case study",
+        "cta_secondary_link": "#"
+      },
+      {
+        "id": 3,
+        "type": "image",
+        "bg_image": "assets/hero-3.jpg",
+        "metrics": [
+          {"value": "3.2x", "label": "Lorem ipsum"},
+          {"value": "+180%", "label": "Sit amet"}
+        ],
+        "headline": "Ut enim ad minim veniam quis nostrud.",
+        "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint.",
+        "cta_primary": "Book a call",
+        "cta_primary_link": "#",
+        "cta_secondary": "Lihat case study",
+        "cta_secondary_link": "#"
+      },
+      {
+        "id": 4,
+        "type": "image",
+        "bg_image": "assets/hero-4.jpg",
+        "metrics": [
+          {"value": "3.6x", "label": "Lorem ipsum"},
+          {"value": "+215%", "label": "Dolor"}
+        ],
+        "headline": "Sed do eiusmod tempor incididunt ut labore.",
+        "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed.",
+        "cta_primary": "Book a call",
+        "cta_primary_link": "#",
+        "cta_secondary": "Lihat case study",
+        "cta_secondary_link": "#"
+      },
+      {
+        "id": 5,
+        "type": "image",
+        "bg_image": "assets/hero-5.jpg",
+        "metrics": [
+          {"value": "180+", "label": "Lorem ipsum"},
+          {"value": "-58%", "label": "Consectetur"}
+        ],
+        "headline": "Nulla facilisi morbi tempus iaculis urna.",
+        "description": "Aliquam ultrices sagittis orci a scelerisque purus semper eget duis at tellus at urna condimentum mattis pellentesque.",
+        "cta_primary": "Book a call",
+        "cta_primary_link": "#",
+        "cta_secondary": "Lihat case study",
+        "cta_secondary_link": "#"
+      },
+      {
+        "id": 6,
+        "type": "image",
+        "bg_image": "assets/hero-6.jpg",
+        "metrics": [
+          {"value": "12k+", "label": "Lorem"},
+          {"value": "6.1x", "label": "Ipsum dolor"}
+        ],
+        "headline": "Vivamus lacinia odio vitae vestibulum vestibulum.",
+        "description": "Cras venenatis euismod malesuada, nunc lorem malesuada elit sed ullamcorper felis odio quis lacus nam eget.",
+        "cta_primary": "Book a call",
+        "cta_primary_link": "#",
+        "cta_secondary": "Lihat case study",
+        "cta_secondary_link": "#"
+      }
+    ]
+  },
+  "trusted": {
+    "label": "Dipercaya oleh XX+ brand di seluruh Indonesia",
+    "clients": [
+      {"id": 1, "logo": "assets/client(1).png"},
+      {"id": 2, "logo": "assets/client(2).png"},
+      {"id": 3, "logo": "assets/client(3).png"},
+      {"id": 4, "logo": "assets/client(4).png"},
+      {"id": 5, "logo": "assets/client(5).png"},
+      {"id": 6, "logo": "assets/client(6).png"},
+      {"id": 7, "logo": "assets/client(7).png"},
+      {"id": 8, "logo": "assets/client(8).png"},
+      {"id": 9, "logo": "assets/client(9).png"},
+      {"id": 10, "logo": "assets/client(10).png"},
+      {"id": 11, "logo": "assets/client(11).png"},
+      {"id": 12, "logo": "assets/client(12).png"},
+      {"id": 13, "logo": "assets/client(13).png"},
+      {"id": 14, "logo": "assets/client(14).png"},
+      {"id": 15, "logo": "assets/client(15).png"}
+    ]
+  },
+  "numbers": {
+    "eyebrow": "BY THE NUMBERS",
+    "title": "Angka yang berbicara sendiri.",
+    "subtitle": "Bukan cuma janji. Ini rekam jejak Marka dari brand yang udah kita bantu tumbuh.",
+    "stats": [
+      {"category": "COMPANY", "value": 9, "suffix": "/10", "label": "NPS Survey", "tooltip": "NPS = Net Promoter Score, 9 dari 10 klien kita nge-recommend Marka ke bisnis lain."},
+      {"category": "COMPANY", "value": 10, "suffix": "+", "label": "Clients Industries", "tooltip": "10+ industri: F&B, fitness, pet care, hospitality, legal, otomotif, logistik B2B, D2C beauty, fintech, superapp."},
+      {"category": "PAID MEDIA", "value": 200, "prefix": "~", "suffix": "Bn", "label": "Revenue Contributions (IDR)", "tooltip": "Total revenue attribution yang kita generate untuk seluruh klien Marka (dalam Rupiah)."},
+      {"category": "PAID MEDIA", "value": 3, "prefix": ">", "suffix": "x", "label": "RoAS Growth", "tooltip": "RoAS = Return on Ad Spend. Rata-rata growth 3x lebih tinggi setelah brand ditangani Marka."},
+      {"category": "CREATIVE", "value": 15, "prefix": "~", "label": "FYP Contents / month", "tooltip": "FYP = For You Page. Rata-rata 15 konten klien kita nembus FYP TikTok / Reels tiap bulan."}
+    ]
+  },
+  "works": {
+    "eyebrow": "OUR WORKS",
+    "title": "Portofolio project terbaik Marka.",
+    "subtitle": "Kumpulan campaign dan konten yang kita bikin bareng brand-brand partner Marka.",
+    "items": [
+      {"id": 1, "type": "image", "src": "assets/work-img-01.jpg", "label": "work-img-01"},
+      {"id": 2, "type": "video", "src": "assets/work-vid-01.mp4", "label": "work-vid-01"},
+      {"id": 3, "type": "image", "src": "assets/work-img-02.jpg", "label": "work-img-02"},
+      {"id": 4, "type": "video", "src": "assets/work-vid-02.mp4", "label": "work-vid-02"},
+      {"id": 5, "type": "image", "src": "assets/work-img-03.jpg", "label": "work-img-03"},
+      {"id": 6, "type": "video", "src": "assets/work-vid-03.mp4", "label": "work-vid-03"},
+      {"id": 7, "type": "image", "src": "assets/work-img-04.jpg", "label": "work-img-04"},
+      {"id": 8, "type": "video", "src": "assets/work-vid-04.mp4", "label": "work-vid-04"},
+      {"id": 9, "type": "image", "src": "assets/work-img-05.jpg", "label": "work-img-05"},
+      {"id": 10, "type": "video", "src": "assets/work-vid-05.mp4", "label": "work-vid-05"},
+      {"id": 11, "type": "image", "src": "assets/work-img-06.jpg", "label": "work-img-06"},
+      {"id": 12, "type": "video", "src": "assets/work-vid-06.mp4", "label": "work-vid-06"},
+      {"id": 13, "type": "image", "src": "assets/work-img-07.jpg", "label": "work-img-07"},
+      {"id": 14, "type": "video", "src": "assets/work-vid-07.mp4", "label": "work-vid-07"},
+      {"id": 15, "type": "image", "src": "assets/work-img-08.jpg", "label": "work-img-08"},
+      {"id": 16, "type": "video", "src": "assets/work-vid-08.mp4", "label": "work-vid-08"},
+      {"id": 17, "type": "image", "src": "assets/work-img-09.jpg", "label": "work-img-09"},
+      {"id": 18, "type": "video", "src": "assets/work-vid-09.mp4", "label": "work-vid-09"},
+      {"id": 19, "type": "image", "src": "assets/work-img-10.jpg", "label": "work-img-10"},
+      {"id": 20, "type": "video", "src": "assets/work-vid-10.mp4", "label": "work-vid-10"}
+    ]
+  },
+  "services": {
+    "eyebrow": "SERVICES",
+    "title": "Solving Problems with Proven Methods.",
+    "subtitle": "Marka kasih solusi custom yang dibikin khusus buat setiap kebutuhan mendesak bisnis kamu.",
+    "items": [
+      {
+        "id": "paid-media",
+        "title": "Paid Media",
+        "description": "Media buying engineered for efficient CAC and scalable ROAS.",
+        "color": "blue",
+        "bg_image": "assets/service-1.jpg",
+        "tags": ["Full-funnel ads management", "Landing page & store optimization", "Smart buying", "Thematic buying & consultation"]
+      },
+      {
+        "id": "creative",
+        "title": "Creative",
+        "description": "Content and creator partnerships that build brand presence.",
+        "color": "coral",
+        "bg_image": "assets/service-2.jpg",
+        "tags": ["Social media management", "Creative & brand campaigns", "KOL / influencer management", "Proxy & TikTok account management"]
+      },
+      {
+        "id": "insights",
+        "title": "Insight",
+        "description": "Real-time monitoring turned into insights that sharpen strategy.",
+        "color": "mint",
+        "bg_image": "assets/service-3.jpg",
+        "tags": ["Social listening & analysis", "Performance dashboards", "Account & ecommerce analysis"]
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "CLIENT TESTIMONIALS",
+    "title": "Proof, not promises.",
+    "subtitle": "Real clients, real results, hear directly from the people whose growth challenges we've helped solve.",
+    "items": [
+      {
+        "id": 1,
+        "video_url": "https://youtu.be/dH5fEvBieLg",
+        "thumbnail": "assets/testimonial-1.jpg",
+        "quote": "Contributed 50, 60% of total leads, significantly improving overall conversion",
+        "name": "Aditya Brahmana",
+        "role": "CEO of Dash Electric",
+        "brand_logo": "assets/brand-1.png"
+      },
+      {
+        "id": 2,
+        "video_url": "https://youtu.be/_QLzUIHvho0",
+        "thumbnail": "assets/testimonial-2.jpg",
+        "quote": "Marka turns customer insights into high-performing content",
+        "name": "Ghalila Tania Gumay",
+        "role": "ex-CMO of MAKA Motors",
+        "brand_logo": "assets/brand-2.png"
+      },
+      {
+        "id": 3,
+        "video_url": "https://youtu.be/duR5l-jQPA0",
+        "thumbnail": "assets/testimonial-3.jpg",
+        "quote": "Achieved 57x ROMI, exceeding the industry standard by 11x",
+        "name": "Rahadika Nugraha",
+        "role": "CEO of Tujuh Pendekar Rasa",
+        "brand_logo": "assets/brand-3.png"
+      },
+      {
+        "id": 4,
+        "video_url": "https://youtu.be/XSeiyRYYx2c",
+        "thumbnail": "assets/testimonial-4.jpg",
+        "quote": "Marka helps us target the right market by data, not by feeling",
+        "name": "Dalzi Rochimat Danil",
+        "role": "CEO of Bagi Kopi Indonesia",
+        "brand_logo": "assets/brand-4.png"
+      }
+    ]
+  },
+  "team": {
+    "eyebrow": "PEOPLE BEHIND MARKA",
+    "title": "The operators behind the strategy.",
+    "subtitle": "Meet the team that's built and scaled growth from the inside, before bringing that experience to Marka.",
+    "members": [
+      {
+        "id": 1,
+        "name": "Emeraldo Faris Aufar",
+        "role": "Commissioner",
+        "photo": "assets/team-1.jpg",
+        "linkedin": "https://www.linkedin.com/",
+        "previously": "B2B SaaS · F&B Tech · Superapp",
+        "story": "Emeraldo Faris Aufar is lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure. Dolor in reprehenderit voluptate velit esse cillum dolore fugiat nulla pariatur excepteur sint occaecat cupidatat non proident."
+      },
+      {
+        "id": 2,
+        "name": "Achmad Ja'far Al Fakhry",
+        "role": "Co-Founder, CEO",
+        "photo": "assets/team-2.jpg",
+        "linkedin": "https://www.linkedin.com/",
+        "previously": "B2B SaaS · Hospitality Tech · Superapp",
+        "story": "Achmad Ja'far Al Fakhry is lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure. Dolor in reprehenderit voluptate velit esse cillum dolore fugiat nulla pariatur excepteur sint occaecat cupidatat non proident."
+      },
+      {
+        "id": 3,
+        "name": "Fauzi Rahardian",
+        "role": "Creative Director",
+        "photo": "assets/team-3.jpg",
+        "linkedin": "https://www.linkedin.com/",
+        "previously": "Media · E-commerce",
+        "story": "Fauzi Rahardian is lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure. Dolor in reprehenderit voluptate velit esse cillum dolore fugiat nulla pariatur excepteur sint occaecat cupidatat non proident."
+      },
+      {
+        "id": 4,
+        "name": "Nurfathia Yasmin",
+        "role": "Paid Media & Insight Director",
+        "photo": "assets/team-4.jpg",
+        "linkedin": "https://www.linkedin.com/",
+        "previously": "B2B SaaS · Superapp · D2C Beauty Tech",
+        "story": "Nurfathia Yasmin is lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure. Dolor in reprehenderit voluptate velit esse cillum dolore fugiat nulla pariatur excepteur sint occaecat cupidatat non proident."
+      },
+      {
+        "id": 5,
+        "name": "Darenth Tanaya",
+        "role": "Commercial Director",
+        "photo": "assets/team-5.jpg",
+        "linkedin": "https://www.linkedin.com/",
+        "previously": "Fintech · Superapp",
+        "story": "Darenth Tanaya is lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure. Dolor in reprehenderit voluptate velit esse cillum dolore fugiat nulla pariatur excepteur sint occaecat cupidatat non proident."
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Frequently asked questions.",
+    "subtitle": "Pertanyaan yang paling sering ditanyain sama calon partner Marka.",
+    "items": [
+      {"question": "Berapa lama biasanya kelihatan hasilnya?", "answer": "Untuk Paid Media, biasanya 2-4 minggu pertama udah kelihatan sinyal performa awal. Optimasi mendalam dan konsistensi hasil butuh 2-3 bulan. Untuk Creative dan Insight, kita rilis output mingguan yang bisa langsung dipantau."},
+      {"question": "Berapa minimum budget yang dibutuhkan?", "answer": "Budget kita sesuain sama scope dan tujuan brand. Kita punya package yang bisa disesuaikan mulai dari brand yang baru mau scale sampai enterprise. Ngobrol dulu aja di call gratis, biar kita bisa kasih rekomendasi yang cocok."},
+      {"question": "Apakah bisa custom sesuai kebutuhan brand?", "answer": "Bisa banget. Setiap brand punya konteks bisnis yang beda, jadi kita design engagement yang bener-bener match sama posisi lo sekarang, baik itu combine 2 dari 3 services, atau full-funnel dari end to end."},
+      {"question": "Bagaimana cara reporting dan monitoring hasil?", "answer": "Klien dapet akses live dashboard 24/7 (Looker Studio + custom BI), plus weekly report berupa video walkthrough dan monthly business review call. Semua metric transparan, dari CTR sampai revenue attribution."},
+      {"question": "Industry apa aja yang udah pernah ditangani Marka?", "answer": "Pet services, fitness, hospitality, legal, otomotif, logistik B2B, D2C beauty, fintech, F&B, dan superapp. 10+ industri dari brand lokal sampai skala nasional."},
+      {"question": "Bagaimana proses onboarding dengan Marka?", "answer": "3 tahap: (1) discovery call 30 menit untuk assess situasi bisnis, (2) proposal & strategy alignment dalam 5-7 hari, (3) kickoff dan setup infrastructure sekitar 1-2 minggu sebelum campaign live."}
+    ]
+  },
+  "contact": {
+    "eyebrow": "CONNECT",
+    "title": "Got a growth challenge worth solving?",
+    "subtitle": "We've built and scaled growth from the inside. Tell us where you're stuck, we'll show you how we'd approach it."
+  },
+  "footer": {
+    "tagline": "Your growth partner. Built by operators who've scaled brands from the inside, now bringing that firepower to your business.",
+    "company_links": ["Home", "About", "Services", "Blog", "Contact Us"],
+    "case_study_links": ["Biteship", "Dash Electric", "Bagi Kopi", "Bakso Tujuh Pemuda", "MAKA Motors"],
+    "address": {
+      "city": "Jakarta",
+      "detail": "Marka Growth Lab HQ, Perumahan Jatinegara Baru, Jl. Gunung Ciremai I No 5, Kel. Penggilingan, Cakung, Jakarta Timur 13940"
+    },
+    "copyright": "© PT Marka Digital Indonesia. All Rights Reserved."
+  },
+  "whatsapp": {
+    "number": "6281234567890",
+    "message": "Halo Marka, saya mau konsultasi"
+  }
+}
