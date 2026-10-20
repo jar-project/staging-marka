@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Marka Journal, Blog Marka Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/shared.css">
+<style>
+
+  .blog-hero {
+    position: relative;
+    padding: 160px 24px 60px;
+    overflow: hidden;
+    isolation: isolate;
+    text-align: center;
+  }
+  .blog-hero::before { content: ''; position: absolute; z-index: -2; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, var(--yellow) 0%, transparent 65%); top: -160px; right: -80px; filter: blur(80px); opacity: 0.4; animation: blobFloat 22s ease-in-out infinite; }
+  .blog-hero::after { content: ''; position: absolute; z-index: -2; width: 440px; height: 440px; border-radius: 50%; background: radial-gradient(circle, var(--pink) 0%, transparent 65%); bottom: -140px; left: -80px; filter: blur(80px); opacity: 0.3; animation: blobFloat 26s ease-in-out infinite reverse; }
+  .blog-hero-inner { max-width: 900px; margin: 0 auto; }
+  .blog-eyebrow { display: inline-flex; padding: 8px 18px; background: #FFFFFF; border: 1px solid var(--line); border-radius: var(--radius-pill); font-size: 12px; font-weight: 700; color: var(--brand); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,40,249,0.06); }
+  .blog-title { font-size: clamp(44px, 6vw, 68px); line-height: 1.02; font-weight: 800; letter-spacing: -0.035em; margin-bottom: 20px; }
+  .blog-title .brand-accent { color: var(--brand); }
+  .blog-title .italic-accent { font-weight: 500; font-style: italic; color: var(--ink-1); }
+  .blog-lead { font-size: 17px; line-height: 1.6; color: var(--ink-1); max-width: 620px; margin: 0 auto; }
+
+  /* filter chips */
+  .blog-filters { max-width: 1280px; margin: 40px auto 0; padding: 0 24px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .filter-chip {
+    padding: 10px 18px;
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+    font-size: 13.5px; font-weight: 600;
+    color: var(--ink-1);
+    cursor: pointer;
+    transition: all .2s var(--ease);
+  }
+  .filter-chip:hover { color: var(--brand); border-color: var(--brand); }
+  .filter-chip.active { background: var(--brand); color: #FFFFFF; border-color: var(--brand); }
+
+  /* featured post */
+  .featured { max-width: 1280px; margin: 60px auto 0; padding: 0 24px; }
+  .featured-card {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 48px;
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(10,10,20,0.08);
+    transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+    cursor: pointer;
+  }
+  .featured-card:hover { transform: translateY(-6px); box-shadow: 0 32px 60px rgba(10,10,20,0.12); }
+  .featured-img {
+    aspect-ratio: 16/10;
+    background: linear-gradient(135deg, var(--brand) 0%, #4360FF 50%, var(--pink) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .featured-img::after {
+    content: 'Featured';
+    position: absolute; top: 16px; left: 16px;
+    padding: 5px 12px;
+    background: rgba(255,255,255,0.95);
+    color: var(--ink-0);
+    border-radius: 999px;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .featured-content { padding: 40px 44px 40px 0; display: flex; flex-direction: column; justify-content: center; }
+  .post-category {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--brand-soft);
+    color: var(--brand);
+    border-radius: 999px;
+    font-size: 11.5px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 16px;
+    width: fit-content;
+  }
+  .featured-title { font-size: clamp(26px, 2.6vw, 34px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.15; margin-bottom: 14px; }
+  .featured-excerpt { font-size: 15.5px; line-height: 1.6; color: var(--ink-1); margin-bottom: 24px; }
+  .post-meta { display: flex; align-items: center; gap: 14px; font-size: 13px; color: var(--ink-2); }
+  .post-author-dot { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--brand), var(--pink)); display: grid; place-items: center; color: #FFFFFF; font-weight: 700; font-size: 12px; }
+  .post-meta-sep { color: var(--ink-3); }
+
+  /* posts grid */
+  .posts-section { position: relative; padding: 80px 24px 100px; background: var(--bg-0); overflow: hidden; }
+  .posts-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .post-card {
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+    display: flex; flex-direction: column;
+  }
+  .post-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(10,10,20,0.1); }
+  .post-img {
+    aspect-ratio: 16/10;
+    background-color: #ECECEF;
+    position: relative;
+  }
+  .post-img.g1 { background: linear-gradient(135deg, var(--brand), #4360FF); }
+  .post-img.g2 { background: linear-gradient(135deg, var(--pink), var(--coral)); }
+  .post-img.g3 { background: linear-gradient(135deg, #26D9A0, #14B8A6); }
+  .post-img.g4 { background: linear-gradient(135deg, var(--yellow), var(--orange)); }
+  .post-img.g5 { background: linear-gradient(135deg, var(--lavender), var(--brand)); }
+  .post-img.g6 { background: linear-gradient(135deg, var(--sky), var(--brand)); }
+  .post-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+  .post-title { font-size: 19px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.25; margin-bottom: 10px; }
+  .post-excerpt { font-size: 14px; line-height: 1.55; color: var(--ink-1); margin-bottom: 20px; flex: 1; }
+  .post-footer { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--ink-2); padding-top: 16px; border-top: 1px solid var(--line); }
+
+  /* newsletter */
+  .newsletter { position: relative; padding: 80px 24px; background: var(--bg-dark); color: #FFFFFF; overflow: hidden; text-align: center; }
+  .newsletter::before { content: ''; position: absolute; top: 20%; right: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(0,40,249,0.4) 0%, transparent 70%); filter: blur(90px); }
+  .newsletter::after { content: ''; position: absolute; bottom: 10%; left: -100px; width: 350px; height: 350px; border-radius: 50%; background: radial-gradient(circle, rgba(255,107,157,0.25) 0%, transparent 70%); filter: blur(90px); }
+  .newsletter-inner { position: relative; z-index: 1; max-width: 580px; margin: 0 auto; }
+  .newsletter h2 { font-size: clamp(28px, 3.5vw, 38px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .newsletter p { font-size: 15.5px; line-height: 1.55; color: rgba(255,255,255,0.75); margin-bottom: 28px; }
+  .news-form { display: flex; gap: 10px; max-width: 460px; margin: 0 auto; }
+  .news-input {
+    flex: 1;
+    padding: 14px 18px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 999px;
+    color: #FFFFFF;
+    font-size: 14.5px;
+    font-family: inherit;
+    outline: none;
+    transition: all .2s var(--ease);
+  }
+  .news-input:focus { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.3); }
+  .news-input::placeholder { color: rgba(255,255,255,0.4); }
+  .news-btn {
+    padding: 14px 24px;
+    background: var(--brand);
+    color: #FFFFFF;
+    border-radius: 999px;
+    font-size: 14px; font-weight: 700;
+    border: none; cursor: pointer;
+    transition: all .2s var(--ease);
+  }
+  .news-btn:hover { background: var(--brand-hover); transform: translateY(-1px); box-shadow: 0 12px 28px rgba(0,40,249,0.32); }
+
+  @media (max-width: 960px) {
+    .blog-hero { padding: 110px 16px 40px; }
+    .blog-title { font-size: 38px; }
+    .featured { padding: 0 16px; }
+    .featured-card { grid-template-columns: 1fr; gap: 0; }
+    .featured-content { padding: 28px; }
+    .posts-section { padding: 60px 16px 80px; }
+    .posts-grid { grid-template-columns: 1fr; }
+    .newsletter { padding: 60px 16px; }
+    .news-form { flex-direction: column; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- MOBILE GATE -->
+<div class="mobile-gate">
+  <div class="mobile-gate-blob a"></div><div class="mobile-gate-blob b"></div><div class="mobile-gate-blob c"></div>
+  <div class="mobile-gate-inner">
+    <img src="assets/logo.svg" alt="Marka Digital" />
+    <div class="mobile-gate-emoji">👋</div>
+    <h2>Yang mobile lagi dibikin gais hehe punten,</h2>
+    <p>preview-nya lewat desktop dulu yaa ...</p>
+  </div>
+</div>
+
+<!-- CURSOR -->
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- NAVBAR -->
+<div class="nav-wrap" id="navWrap">
+  <nav class="nav">
+    <a href="index.html" class="logo" aria-label="Marka Digital"><img src="assets/logo.svg" alt="Marka Digital" /></a>
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li>
+        <button class="nav-toggle">Services<svg class="caret" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown">
+          <a href="paid-media.html" class="dropdown-item">Paid Media</a>
+          <a href="creative-studio.html" class="dropdown-item">Creative Studio</a>
+          <a href="insights-intelligence.html" class="dropdown-item">Insights Intelligence</a>
+        </div>
+      </li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta"><span>Book a call</span><svg viewBox="0 0 24 24" fill="none"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <button class="nav-burger" id="burgerBtn" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+  </nav>
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+  <div class="mobile-menu-panel">
+    <div class="mobile-menu-head">
+      <img src="assets/logo.svg" alt="Marka Digital" />
+      <button class="mobile-close" id="mobileCloseBtn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    </div>
+    <ul class="mobile-menu-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li>
+        <button class="mobile-sub-toggle">Services<svg width="14" height="14" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="mobile-submenu"><div><ul style="list-style:none;padding:0;">
+          <li><a href="paid-media.html">Paid Media</a></li>
+          <li><a href="creative-studio.html">Creative Studio</a></li>
+          <li><a href="insights-intelligence.html">Insights Intelligence</a></li>
+        </ul></div></div>
+      </li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <a href="contact.html" class="mobile-cta">Book a call<svg viewBox="0 0 24 24" fill="none"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</div>
+
+
+<section class="blog-hero">
+  <div class="blog-hero-inner">
+    <div class="blog-eyebrow reveal">THE MARKA JOURNAL</div>
+    <h1 class="blog-title reveal reveal-delay-1">Insights &amp; <span class="italic-accent">cerita dari</span> <span class="brand-accent">balik layar.</span></h1>
+    <p class="blog-lead reveal reveal-delay-2">Playbook, breakdown case study, dan behind-the-scene dari tim Marka buat growth marketer dan founder yang ngejar hasil nyata.</p>
+  </div>
+</section>
+
+<div class="blog-filters reveal reveal-delay-3">
+  <button class="filter-chip active">All Posts</button>
+  <button class="filter-chip">Paid Media</button>
+  <button class="filter-chip">Creative Studio</button>
+  <button class="filter-chip">Insights &amp; Analytics</button>
+  <button class="filter-chip">Growth Strategy</button>
+  <button class="filter-chip">Case Study</button>
+</div>
+
+<!-- Featured -->
+<section class="featured reveal">
+  <article class="featured-card">
+    <div class="featured-img"></div>
+    <div class="featured-content">
+      <span class="post-category">Growth Strategy</span>
+      <h2 class="featured-title">Kenapa 90% campaign D2C gagal scale, dan apa yang bisa kita pelajari dari 15 brand yang berhasil.</h2>
+      <p class="featured-excerpt">Analisa 15 D2C brand yang kita handle di 2 tahun terakhir, dari pet care sampai F&amp;B. Spoiler: masalahnya bukan budget, tapi unit economics yang nggak sustainable.</p>
+      <div class="post-meta">
+        <div class="post-author-dot">JF</div>
+        <span>Ja'far Al Fakhry</span>
+        <span class="post-meta-sep">·</span>
+        <span>12 Oct 2026</span>
+        <span class="post-meta-sep">·</span>
+        <span>8 min read</span>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- Posts grid -->
+<section class="posts-section">
+  <div class="posts-grid">
+    <article class="post-card reveal reveal-delay-1">
+      <div class="post-img g1"></div>
+      <div class="post-body">
+        <span class="post-category">Paid Media</span>
+        <h3 class="post-title" style="margin-top: 10px;">Meta Ads bidding strategy di 2026: kapan pake Advantage+, kapan manual.</h3>
+        <p class="post-excerpt">Advantage+ nggak selalu menang. Ini breakdown kondisi kapan lo harus trust Meta's AI vs ngelakuin manual campaign.</p>
+        <div class="post-footer">
+          <div class="post-author-dot" style="background: linear-gradient(135deg, var(--mint), var(--brand));">NY</div>
+          <span>Nurfathia Yasmin</span><span class="post-meta-sep">·</span><span>5 min read</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card reveal reveal-delay-2">
+      <div class="post-img g2"></div>
+      <div class="post-body">
+        <span class="post-category">Creative Studio</span>
+        <h3 class="post-title" style="margin-top: 10px;">7 pattern konten FYP TikTok yang masih relevan di Q4 2026.</h3>
+        <p class="post-excerpt">TikTok algo udah mature, pattern yang jalan di 2024 banyak yang ga relevan lagi. Ini playbook update dari 100+ FYP yang kita produce bulan lalu.</p>
+        <div class="post-footer">
+          <div class="post-author-dot" style="background: linear-gradient(135deg, var(--pink), var(--yellow));">FR</div>
+          <span>Fauzi Rahardian</span><span class="post-meta-sep">·</span><span>6 min read</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card reveal reveal-delay-3">
+      <div class="post-img g3"></div>
+      <div class="post-body">
+        <span class="post-category">Insights &amp; Analytics</span>
+        <h3 class="post-title" style="margin-top: 10px;">Server-side tracking buat Meta Ads: setup lengkap tanpa developer.</h3>
+        <p class="post-excerpt">Panduan step-by-step setup Meta Conversions API via GTM. Nggak perlu backend engineer, cukup Google Tag Manager.</p>
+        <div class="post-footer">
+          <div class="post-author-dot" style="background: linear-gradient(135deg, var(--mint), var(--sky));">NY</div>
+          <span>Nurfathia Yasmin</span><span class="post-meta-sep">·</span><span>12 min read</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card reveal reveal-delay-1">
+      <div class="post-img g4"></div>
+      <div class="post-body">
+        <span class="post-category">Case Study</span>
+        <h3 class="post-title" style="margin-top: 10px;">Bagi Kopi: dari 0 ke 2.4M monthly reach dalam 6 bulan.</h3>
+        <p class="post-excerpt">Breakdown lengkap strategi content &amp; paid untuk launch D2C coffee brand dari Jakarta sampai nasional.</p>
+        <div class="post-footer">
+          <div class="post-author-dot" style="background: linear-gradient(135deg, var(--yellow), var(--coral));">DT</div>
+          <span>Darenth Tanaya</span><span class="post-meta-sep">·</span><span>9 min read</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card reveal reveal-delay-2">
+      <div class="post-img g5"></div>
+      <div class="post-body">
+        <span class="post-category">Growth Strategy</span>
+        <h3 class="post-title" style="margin-top: 10px;">LTV &gt; CAC itu basic. Yang beneran matters: payback period.</h3>
+        <p class="post-excerpt">Kenapa founder yang obsess sama LTV/CAC ratio sering keblinger. Payback period adalah KPI yang lebih real buat scale.</p>
+        <div class="post-footer">
+          <div class="post-author-dot" style="background: linear-gradient(135deg, var(--lavender), var(--brand));">JF</div>
+          <span>Ja'far Al Fakhry</span><span class="post-meta-sep">·</span><span>7 min read</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card reveal reveal-delay-3">
+      <div class="post-img g6"></div>
+      <div class="post-body">
+        <span class="post-category">Paid Media</span>
+        <h3 class="post-title" style="margin-top: 10px;">Google Ads Performance Max: review jujur dari agency setelah 1 tahun pakai.</h3>
+        <p class="post-excerpt">PMax bisa menang, bisa buang budget. Ini kondisi brand yang cocok dan nggak cocok pake PMax, berdasarkan data dari 10 akun yang kita handle.</p>
+        <div class="post-footer">
+          <div class="post-author-dot" style="background: linear-gradient(135deg, var(--brand), var(--pink));">EF</div>
+          <span>Emeraldo Faris</span><span class="post-meta-sep">·</span><span>10 min read</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter">
+  <div class="newsletter-inner">
+    <h2 class="reveal">Dapet artikel baru tiap minggu, langsung ke inbox.</h2>
+    <p class="reveal reveal-delay-1">Playbook, breakdown case study, dan tactic update dari tim Marka. No spam, cuma yang substansial.</p>
+    <form class="news-form reveal reveal-delay-2" onsubmit="event.preventDefault(); alert('Thanks! Lo bakal dapet email konfirmasi.');">
+      <input type="email" class="news-input" placeholder="you@company.com" required>
+      <button type="submit" class="news-btn">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo"><img src="assets/logo.svg" alt="Marka Digital" /></a>
+        <p>Your growth partner. Built by operators who've scaled brands from the inside, now bringing that firepower to your business.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.27.07 1.65.07 4.85 0 3.2 0 3.58-.07 4.85-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.27.06-1.65.07-4.85.07-3.2 0-3.58 0-4.85-.07-1.17-.05-1.8-.25-2.23-.42a3.8 3.8 0 01-1.38-.9 3.8 3.8 0 01-.9-1.38c-.17-.42-.37-1.06-.42-2.23C2.21 15.63 2.2 15.25 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.42 2.21 8.8 2.2 12 2.2m0-2.2C8.74 0 8.33 0 7.05.07 5.78.12 4.9.34 4.14.64c-.79.3-1.46.72-2.13 1.39a5.9 5.9 0 00-1.39 2.13c-.3.76-.51 1.63-.57 2.9C0 8.33 0 8.74 0 12c0 3.26 0 3.67.07 4.95.05 1.27.27 2.14.57 2.9.31.79.72 1.46 1.39 2.13.67.67 1.34 1.08 2.13 1.39.76.3 1.63.51 2.9.57C8.33 24 8.74 24 12 24s3.67 0 4.95-.07c1.27-.05 2.14-.27 2.9-.57.79-.3 1.46-.72 2.13-1.39a5.9 5.9 0 001.39-2.13c.3-.76.51-1.63.57-2.9C24 15.67 24 15.26 24 12s0-3.67-.07-4.95c-.05-1.27-.27-2.14-.57-2.9a5.9 5.9 0 00-1.39-2.13A5.9 5.9 0 0019.85.63C19.09.34 18.22.12 16.95.07 15.67 0 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zm0 10.16a4 4 0 110-8 4 4 0 010 8zm7.85-10.4a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg></a>
+          <a href="#" class="footer-social" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 11-.001-4.13 2.07 2.07 0 010 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.23 0H1.77C.8 0 0 .78 0 1.73v20.54C0 23.22.8 24 1.77 24h20.46C23.2 24 24 23.22 24 22.27V1.73C24 .78 23.2 0 22.23 0z"/></svg></a>
+          <a href="#" class="footer-social" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.84-.1z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Company</h4><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="paid-media.html">Services</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Case Study</h4><ul>
+        <li><a href="#">Biteship</a></li>
+        <li><a href="#">Dash Electric</a></li>
+        <li><a href="#">Bagi Kopi</a></li>
+        <li><a href="#">Bakso Tujuh Pemuda</a></li>
+        <li><a href="#">MAKA Motors</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4><div class="footer-address">
+        <span class="footer-address-city">Jakarta</span>
+        <p class="footer-address-detail">Marka Growth Lab HQ, Perumahan Jatinegara Baru, Jl. Gunung Ciremai I No 5, Kel. Penggilingan, Cakung, Jakarta Timur 13940</p>
+      </div></div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© PT Marka Digital Indonesia. All Rights Reserved.</p>
+      <div class="footer-links"><a href="#">Terms &amp; Conditions</a><a href="#">Privacy Policy</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- WA FAB -->
+<a href="https://wa.me/6281234567890?text=Halo%20Marka%2C%20saya%20mau%20konsultasi" target="_blank" rel="noopener" class="wa-fab" aria-label="Chat via WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script src="assets/shared.js"></script>
+</body>
+</html>
